@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fi.utu.tech.ringersClock.UI.MainViewController">
+   <top>
+      <Label text="Ringer's Clock" textFill="#2bf53f" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="69.0" />
+         </font></Label>
+   </top>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Create a new group" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label text="Name of the group" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="newGroupName" />
+                  <Label text="Select wake up time" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="34.0" prefWidth="200.0">
+                     <children>
+                        <ChoiceBox fx:id="newHour" prefWidth="150.0" />
+                        <ChoiceBox fx:id="newMinute" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  <Label text="Weather requirements" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <CheckBox fx:id="norain" mnemonicParsing="false" text="Not raining" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </CheckBox>
+                  <CheckBox fx:id="temp" mnemonicParsing="false" prefHeight="26.0" prefWidth="171.0" text="Temperature over 0 degrees" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </CheckBox>
+                  <Button fx:id="createButton" mnemonicParsing="false" onAction="#createButtonPressed" prefHeight="23.0" prefWidth="51.0" text="Create" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Select existing group" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="existingGroup" prefWidth="150.0" />
+                  <Button fx:id="joinButton" mnemonicParsing="false" onAction="#joinButtonPressed" text="Join" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label text="Resign from group" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="resignButton" mnemonicParsing="false" onAction="#resignButtonPressed" text="Resign" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Current Time" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="currentTime" text="Label" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="64.0" />
+               </font></Label>
+            <Separator prefWidth="200.0" />
+            <Label text="Wake-up time" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label fx:id="alarmTime" text="Label" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="64.0" />
+               </font></Label>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Current status" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="statusText" prefHeight="499.0" prefWidth="150.0" />
+         </children>
+      </VBox>
+   </left>
+   <bottom>
+      <ImageView fx:id="alarmPic" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@alarm.jpg" />
+         </image>
+      </ImageView>
+   </bottom>
+</BorderPane>
